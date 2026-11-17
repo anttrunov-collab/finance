@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Анна Кетова — финансовый консультант на аутсорсе</title>
+<style>
+:root{
+  --bg:#f5f7fb;--surface:#ffffff;--text:#0f1b33;--muted:#5a6781;--border:#e1e6f0;
+  --accent:#10b981;--accent2:#2563eb;--accent3:#f59e0b;--soft:#ecfdf5;--soft-text:#065f46;
+  --shadow:0 10px 30px rgba(15,27,51,.08);--shadow-h:0 18px 40px rgba(37,99,235,.18);
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;--bg:#0b1222;--surface:#131c33;--text:#eaf0ff;--muted:#9aa8c7;--border:#243050;
+    --soft:#0f2a27;--soft-text:#6ee7b7;--shadow:0 10px 30px rgba(0,0,0,.35);--shadow-h:0 18px 40px rgba(16,185,129,.18);
+  }
+}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0b1222;--surface:#131c33;--text:#eaf0ff;--muted:#9aa8c7;--border:#243050;--soft:#0f2a27;--soft-text:#6ee7b7;--shadow:0 10px 30px rgba(0,0,0,.35);--shadow-h:0 18px 40px rgba(16,185,129,.18)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:72px 0 56px;text-align:center}
+.hero::before{content:"";position:absolute;inset:-40% -10% auto -10%;height:520px;
+  background:radial-gradient(closest-side,rgba(37,99,235,.22),transparent),radial-gradient(closest-side at 80% 30%,rgba(16,185,129,.22),transparent);
+  filter:blur(20px);z-index:0}
+.hero .wrap{position:relative;z-index:1}
+.badge{display:inline-block;padding:6px 14px;border-radius:999px;background:var(--soft);color:var(--soft-text);
+  font-size:.85rem;font-weight:600;letter-spacing:.02em;border:1px solid var(--border)}
+h1{margin:20px 0 10px;font-size:clamp(2.4rem,8vw,4.6rem);line-height:1.05;font-weight:800;letter-spacing:-.03em;
+  background:linear-gradient(120deg,var(--accent2) 0%,#7c3aed 45%,var(--accent) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.role{font-size:clamp(1.15rem,3.5vw,1.6rem);font-weight:600;margin:0}
+.audience{color:var(--muted);margin:8px 0 0;font-size:1.05rem}
+.audience::before{content:"";display:inline-block;width:28px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--accent2),var(--accent));vertical-align:middle;margin-right:10px}
+
+/* Sections */
+.section-title{display:flex;align-items:center;gap:14px;font-size:clamp(1.5rem,4vw,2.1rem);margin:48px 0 24px;letter-spacing:-.01em}
+.section-title::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,var(--border),transparent)}
+
+/* Cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
+.card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:26px;
+  box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;overflow:hidden;
+  transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.card::before{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));
+  transform:scaleX(.25);transform-origin:left;transition:transform .4s ease}
+.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-h);border-color:var(--accent)}
+.card:hover::before{transform:scaleX(1)}
+.num{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:1.15rem;
+  background:linear-gradient(135deg,var(--accent2),var(--accent));transition:transform .3s ease}
+.card:hover .num{transform:rotate(-8deg) scale(1.1)}
+.card h3{margin:0;font-size:1.2rem;line-height:1.3}
+.card p{margin:0;color:var(--muted);font-size:.97rem}
+
+/* Case blocks */
+.case{margin-top:auto;padding:16px 18px;border-radius:14px;background:var(--soft);border-left:4px solid var(--accent)}
+.case .label{display:block;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent3);margin-bottom:6px}
+.case span.t{color:var(--soft-text);font-size:.95rem;font-weight:500;display:block}
+
+/* Tags */
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tag{padding:9px 16px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:.92rem;font-weight:500;
+  transition:all .25s ease;cursor:default}
+.tag:hover{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;border-color:transparent;transform:translateY(-3px)}
+
+/* Footer CTA */
+.cta{margin:64px 0 40px;padding:44px 28px;border-radius:28px;text-align:center;color:#fff;
+  background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 55%,#10b981 130%);box-shadow:var(--shadow-h)}
+.cta h2{margin:0 0 18px;font-size:clamp(1.4rem,4.5vw,2.2rem);line-height:1.25}
+.phone{display:inline-block;padding:14px 30px;border-radius:999px;background:var(--accent3);color:#1b1300;font-weight:800;
+  font-size:1.2rem;text-decoration:none;transition:transform .25s ease,box-shadow .25s ease}
+.phone:hover{transform:scale(1.05);box-shadow:0 10px 24px rgba(0,0,0,.3)}
+
+@media (max-width:640px){
+  .hero{padding:48px 0 36px}
+  .grid{grid-template-columns:1fr}
+  .card{padding:22px}
+  .card:hover{transform:translateY(-4px)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">Финансы без хаоса</span>
+    <h1>Анна Кетова</h1>
+    <p class="role">Финансовый консультант на аутсорсе</p>
+    <p class="audience">Для собственников малого бизнеса</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2 class="section-title">Основные услуги</h2>
+  <div class="grid">
+
+    <article class="card">
+      <div class="num">1</div>
+      <h3>Постановка управленческого учёта</h3>
+      <p>Настраиваю отчёты о прибыли, движении денег и финансовом положении бизнеса.</p>
+      <div class="case"><span class="label">Что получает клиент</span><span class="t">Понимание, сколько бизнес зарабатывает, куда уходят деньги и сколько компания должна поставщикам и кредиторам.</span></div>
+    </article>
+
+    <article class="card">
+      <div class="num">2</div>
+      <h3>Бюджетирование и контроль исполнения</h3>
+      <p>Составляю бюджет доходов и расходов, сравниваю план с фактом и разбираю причины отклонений.</p>
+      <div class="case"><span class="label">Что получает клиент</span><span class="t">План на месяц, квартал или год и понимание, где расходы вышли за рамки бюджета или почему выручка оказалась ниже плана.</span></div>
+    </article>
+
+    <article class="card">
+      <div class="num">3</div>
+      <h3>Управление платежами</h3>
+      <p>Настраиваю платёжный календарь с учётом ожидаемых поступлений и сроков оплаты.</p>
+      <div class="case"><span class="label">Что получает клиент</span><span class="t">Прогноз остатка денег по датам и возможность заранее увидеть, когда средств может не хватить.</span></div>
+    </article>
+
+    <article class="card">
+      <div class="num">4</div>
+      <h3>Анализ прибыли и расходов</h3>
+      <p>Рассчитываю себестоимость и прибыльность по продуктам, проектам или направлениям.</p>
+      <div class="case"><span class="label">Что получает клиент</span><span class="t">Понимание, какие направления приносят прибыль, какие работают в убыток и где стоит пересмотреть цены или затраты.</span></div>
+    </article>
+
+    <article class="card">
+      <div class="num">5</div>
+      <h3>Финансовое моделирование</h3>
+      <p>Рассчитываю, как запуск проекта, изменение цен, рост продаж или новые расходы повлияют на прибыль и остаток денег.</p>
+      <div class="case"><span class="label">Что получает клиент</span><span class="t">Сравнение сценариев и расчёт того, сколько денег потребуется для реализации выбранного варианта.</span></div>
+    </article>
+
+    <article class="card">
+      <div class="num">6</div>
+      <h3>Автоматизация финансовых процессов</h3>
+      <p>Настраиваю загрузку данных из банковских выписок, учётных систем и таблиц. Задаю правила распределения операций по статьям, добавляю проверки на дубли и пропуски, настраиваю обновление отчётов.</p>
+      <div class="case"><span class="label">Что получает клиент</span><span class="t">Меньше ручного переноса данных, быстрее подготовка отчётности и возможность проверить, из каких операций сложилась каждая сумма.</span></div>
+    </article>
+
+    <article class="card">
+      <div class="num">7</div>
+      <h3>Регулярное финансовое сопровождение</h3>
+      <p>Разбираю с собственником итоги месяца, обновляю прогноз и оцениваю финансовые последствия предстоящих решений.</p>
+      <div class="case"><span class="label">Что получает клиент</span><span class="t">Понятное объяснение результатов и список решений, которые требуют внимания собственника.</span></div>
+    </article>
+
+    <article class="card">
+      <div class="num">8</div>
+      <h3>Управление дебиторской задолженностью</h3>
+      <p>Собираю данные о долгах клиентов, выделяю просроченные платежи и настраиваю напоминания об оплате.</p>
+      <div class="case"><span class="label">Что получает клиент</span><span class="t">Понимание, кто, сколько и с какой даты должен компании, и список платежей, по которым нужно связаться с клиентами в первую очередь.</span></div>
+    </article>
+
+    <article class="card">
+      <div class="num">9</div>
+      <h3>Расчёт цен и условий скидок</h3>
+      <p>Оцениваю, сколько компания заработает с продажи с учётом себестоимости, скидок, комиссий и доставки.</p>
+      <div class="case"><span class="label">Что получает клиент</span><span class="t">Расчёт минимальной цены с заданной прибылью и понимание, какую скидку можно дать по конкретной сделке.</span></div>
+    </article>
+
+  </div>
+
+  <h2 class="section-title">Инструменты и отчёты</h2>
+  <div class="tags">
+    <span class="tag">Отчёт о прибылях и убытках</span>
+    <span class="tag">Отчёт о движении денег</span>
+    <span class="tag">Финансовое положение</span>
+    <span class="tag">Бюджет доходов и расходов</span>
+    <span class="tag">План/факт</span>
+    <span class="tag">Платёжный календарь</span>
+    <span class="tag">Себестоимость</span>
+    <span class="tag">Сценарный анализ</span>
+    <span class="tag">Банковские выписки</span>
+    <span class="tag">Учётные системы</span>
+    <span class="tag">Таблицы</span>
+  </div>
+
+  <section class="cta">
+    <h2>Показываю, где бизнес зарабатывает<br>и куда уходят деньги.</h2>
+    <a class="phone" href="tel:8XXXXXXXXXX">8-XXX-XXX-XX-XX</a>
+  </section>
+</main>
+
+</body>
+</html>
